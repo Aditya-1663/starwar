@@ -9,7 +9,7 @@ export default function CharFlim(props) {
     <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   
     >
-  <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+  <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray'} mb={'15px'}>
   films
   </Box>
      
@@ -21,7 +21,7 @@ export default function CharFlim(props) {
            props.films.map((data) => (
 
             <Link key={data} href={`/page/films/${data.split('/').filter(Boolean).pop()}`}   passHref>
-                {/* {{data}} */}
+               
               <FlimCard data={data}  />
              </Link>
             ))

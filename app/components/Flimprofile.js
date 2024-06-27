@@ -8,8 +8,8 @@ import Datacontext from '../context/Datacontex'
 import Link from 'next/link'
 export default function Flimprofile(props) {
   const context=useContext(Datacontext)
-  const {fprofile,Filmprofile}= context
- 
+  const {fprofile,Filmprofile,Filmsimg}= context
+
 const fetchData = useCallback(async () => {
   await Filmprofile(props.url);
 }, [props.url]);
@@ -23,22 +23,23 @@ useEffect(() => {
 
   return (
     <>
-    <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
+    <Container  size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
      
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
         <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        backgroundImage={'https://images.unsplash.com/photo-1547700055-b61cacebece9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww'}
+        // backgroundImage={'https://images.unsplash.com/photo-1547700055-b61cacebece9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww'}
+        backgroundImage={`url(${Filmsimg[fprofile.title]})`}
         backgroundSize='cover'
            backgroundPosition='center'
            backgroundRepeat='no-repeat'
         >
            
         </Box>
-        <Box border={'1px'} borderColor={'red'} height={'100%'} width={['100%','50%']}>
+        <Box border={'1px'}   height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
-                <Heading mb={5}>fprofile.title</Heading>
+                <Heading mb={5}>{fprofile.title}</Heading>
                 <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Episode No.: {fprofile.episode_id}</Heading>
                 <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Opening Creawl: {fprofile.opening_crawl}</Heading>
                 <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Director: {fprofile.director}</Heading>

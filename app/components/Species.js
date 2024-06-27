@@ -32,14 +32,14 @@ export default function Species(props) {
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
         <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        backgroundImage={'https://images.unsplash.com/photo-1547700055-b61cacebece9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww'}
+        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/star-wars-outlaws-gameplay_article-feature_01bb1e67.jpeg?region=0,0,1600,900&width=768'}
         backgroundSize='cover'
            backgroundPosition='center'
            backgroundRepeat='no-repeat'
         >
            
         </Box>
-        <Box border={'1px'} borderColor={'red'} height={'100%'} width={['100%','50%']}>
+        <Box border={'1px'}   height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{data.name}</Heading>
@@ -66,7 +66,7 @@ export default function Species(props) {
     <Container h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
   
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray'} mb={'15px'}>
 People
 </Box>
    

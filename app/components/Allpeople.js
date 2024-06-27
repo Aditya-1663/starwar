@@ -10,7 +10,7 @@ import Link from 'next/link';
 export default function Allpeople() {
   const context=useContext(Datacontext)
   const {data,getAllchar,setdata}= context
-  const [url,seturl] = useState('https://swapi.dev/api/people/?page=3');
+  const [url,seturl] = useState('https://swapi.dev/api/people/');
 const fetchData = useCallback(async () => {
   await getAllchar(url);
 }, [url]);
@@ -33,18 +33,18 @@ const handlePrevClick = () => {
 
 
     <>
-   <Container h={'50vh'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} 
-   backgroundImage={'https://images.unsplash.com/photo-1547700055-b61cacebece9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww'}
+   <Divider/>
+   <Container h={'60vh'} maxW='85%' maxH={'70%'}  size={'lg'} mt={5}
+   backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/star-wars-outlaws-gameplay_article-feature_01bb1e67.jpeg?region=0,0,1600,900&width=768'}
    backgroundSize='cover'
       backgroundPosition='center'
       backgroundRepeat='no-repeat'
       >
        
     </Container> 
-    <Divider/>
     
 
-   <Container h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
+   <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   
       >
 <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>

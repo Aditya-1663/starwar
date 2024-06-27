@@ -2,6 +2,7 @@
 
 import {
  
+  Box,
     Button,
     Drawer,
     DrawerBody,
@@ -14,37 +15,49 @@ import {
     IconButton,
     Input,
  
+    VStack,
+ 
     useDisclosure,
   } from "@chakra-ui/react";
 import {FaBars} from "react-icons/fa"
 import React from 'react'
+import Link from "next/link";
 
 export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
     return (
       <>
-        <Drawer
+        <Drawer 
           isOpen={isOpen}
           placement="right"
           onClose={onClose}
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg={'black'} color={'white'}>
             <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
+            <DrawerHeader>Menu Bar</DrawerHeader>
   
             <DrawerBody>
-              <Input placeholder="Type here..." />
+              <VStack  spacing={6} fontSize={18} w={'100%'}>
+                <Link href={'#'} ><Box border={'2px'} borderColor={'black'}  as="div" _hover={{border:'2px solid white',
+              
+                }} p={4} >My Favourite</Box></Link>
+                <Link href={'#'} ><Box border={'2px'} borderColor={'black'} as="div" _hover={{border:'2px solid white',
+                 
+                }} p={4} >All Character</Box></Link>
+                <Link href={'#'} ><Box  border={'2px'} borderColor={'black'} as="div" _hover={{border:'2px solid white',
+               
+                }} p={4} >All Movies</Box></Link>
+                <Link href={'#'} ><Box border={'2px'} borderColor={'black'} as="div" _hover={{border:'2px solid white',
+                 
+                }} p={4} >All Vehicle</Box></Link>
+                
+              </VStack>
             </DrawerBody>
-  
-            <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme="blue">Save</Button>
-            </DrawerFooter>
+
+          
           </DrawerContent>
         </Drawer>
         <Flex
