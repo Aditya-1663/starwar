@@ -1,10 +1,26 @@
 import { Box, Container, Flex, Heading, SimpleGrid, Wrap } from '@chakra-ui/react'
-import React from 'react'
+import React, { useCallback, useContext, useEffect } from 'react'
 import Peoplecard from './Peoplecard'
 import FlimCard from './FlimCard'
 import CharFlim from './CharFlim'
 import SimpleCard from './SimpleCard'
-export default function Flimprofile() {
+import Datacontext from '../context/Datacontex'
+import Link from 'next/link'
+export default function Flimprofile(props) {
+  const context=useContext(Datacontext)
+  const {fprofile,Filmprofile}= context
+ 
+const fetchData = useCallback(async () => {
+  await Filmprofile(props.url);
+}, [props.url]);
+
+useEffect(() => {
+  fetchData();
+}, [fetchData]);
+
+ console.log(props.url)
+
+
   return (
     <>
     <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
@@ -22,12 +38,12 @@ export default function Flimprofile() {
         <Box border={'1px'} borderColor={'red'} height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
-                <Heading mb={5}>Flim Name</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Episode No.:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Opening Creawl:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Director:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Producer:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Release Date:</Heading>
+                <Heading mb={5}>fprofile.title</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Episode No.: {fprofile.episode_id}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Opening Creawl: {fprofile.opening_crawl}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Director: {fprofile.director}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Producer: {fprofile.producer}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Release Date: {fprofile.release_date}</Heading>
               
                 
              </Flex>
@@ -43,22 +59,24 @@ export default function Flimprofile() {
   
   >
 <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
-Charcters in Flim
+Characters in Flim
 </Box>
    
 
 
-
 <Wrap justify='center'>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
+          {fprofile && fprofile.characters ? (
+            fprofile.characters.map((data) => (
 
-
-</Wrap>
+              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                {/* {{data}} */}
+              <Peoplecard  data={data} />
+             </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
 
      
     
@@ -75,21 +93,24 @@ Charcters in Flim
 <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 planets
 </Box>
+
    
 
 
 
-<Wrap>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
+<Wrap justify='center'>
+          {fprofile && fprofile.planets ? (
+            fprofile.planets.map((data) => (
 
-</Wrap>
-
+              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                {/* {{data}} */}
+              <SimpleCard data={data} />
+             </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
      
     
   
@@ -105,16 +126,20 @@ vehicles
 
 
 
-<Wrap>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
 
-</Wrap>
+<Wrap justify='center'>
+          {fprofile && fprofile.vehicles ? (
+            fprofile.vehicles.map((data) => (
+
+              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                {/* {{data}} */}
+              <SimpleCard data={data} />
+             </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
 
      
     
@@ -131,16 +156,19 @@ Species
 
 
 
-<Wrap>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
+<Wrap justify='center'>
+          {fprofile && fprofile.species ? (
+            fprofile.species.map((data) => (
 
-</Wrap>
+              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                {/* {{data}} */}
+              <SimpleCard data={data} />
+             </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
 
      
     
@@ -157,16 +185,20 @@ starships
 
 
 
-<Wrap>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
-<SimpleCard/>
 
-</Wrap>
+<Wrap justify='center'>
+          {fprofile && fprofile.starships ? (
+            fprofile.starships.map((data) => (
+
+              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                {/* {{data}} */}
+              <SimpleCard data={data} />
+             </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
 
      
     
