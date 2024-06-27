@@ -1,10 +1,30 @@
 import { Box, Container, Flex, Heading, SimpleGrid, Wrap } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Peoplecard from './Peoplecard'
 import FlimCard from './FlimCard'
 import CharFlim from './CharFlim'
 import SimpleCard from './SimpleCard'
-export default function Species() {
+export default function Species(props) {
+
+  const [data, setdata] = useState("");
+
+  useEffect(() => {
+    const fetchCharacterData = async () => {
+      
+        try {
+          const response = await fetch(props.url);
+          const jsonData = await response.json();
+          setdata(jsonData);
+        } catch (error) {
+          console.error('Error fetching character data:', error);
+        }
+      
+    };
+
+    fetchCharacterData();
+  }, [props.url]);
+
+  console.log(data)
   return (
     <>
     <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
@@ -22,16 +42,16 @@ export default function Species() {
         <Box border={'1px'} borderColor={'red'} height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
-                <Heading mb={5}>Species name</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Classification:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Designation:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Average Height:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Skin Colors:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Hair Colors:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Eye Colors:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Average Lifespan:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>HomeWorld:</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Language:</Heading>
+                <Heading mb={5}>{data.name}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Classification: {data.classification}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Designation: {data.designation}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Average Height: {data.average_height}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Skin Colors: {data.skin_colors}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Hair Colors: {data.hair_colors}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Eye Colors: {data.eye_colors}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Average Lifespan: {data.average_lifespan}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>HomeWorld: {data.homeworld}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Language: {data.language}</Heading>
               
                 
              </Flex>
@@ -52,15 +72,19 @@ People
    
 
 
-
 <Wrap justify='center'>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-<Peoplecard/>
-</Wrap>
+          {data && data.people ? (
+            data.people.map((data) => (
+
+              <Peoplecard  data={data.url} />
+              // <Link key={data.url} href={`/page/profile/${data.url.split('/').filter(Boolean).pop()}`}   passHref>
+              
+            //  </Link>
+            ))
+          ) : (
+            <Box color={'white'}>Loading...</Box>
+          )}
+        </Wrap>
 
      
     
@@ -68,7 +92,7 @@ People
   
 </Container> 
 
-<CharFlim/>
+<CharFlim films={data.films}/>
 
 
  

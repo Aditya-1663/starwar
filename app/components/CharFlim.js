@@ -4,7 +4,7 @@ import FlimCard from './FlimCard'
 import Link from 'next/link'
 
 export default function CharFlim(props) {
-  console.log(props.films)
+
   return (
     <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   

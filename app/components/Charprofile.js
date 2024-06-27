@@ -72,7 +72,7 @@ species
           {profile && profile.species ? (
             profile.species.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/species/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
@@ -100,7 +100,7 @@ vehicles
           {profile && profile.vehicles ? (
             profile.vehicles.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/vehicle/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
@@ -129,7 +129,7 @@ starships
           {profile && profile.starships ? (
             profile.starships.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/starship/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>

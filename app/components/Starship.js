@@ -22,7 +22,7 @@ export default function PlanetsProfile(props) {
 
     fetchData();
   }, [props.url]);
- console.log(data)
+ console.log(props.url)
   return (
     
     <>
@@ -50,14 +50,18 @@ export default function PlanetsProfile(props) {
             <Container mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{data.name}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Rotation Period: {data.rotational_period}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Orbital Period: {data.orbital_period}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Diameter: {data.diameter}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Climate: {data.climate}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Gravity: {data.gravity}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Terrain: {data.terrain}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Surface Water: {data.surface_water}</Heading>
-                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Population: {data.population}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Model: {data.model}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Manufecturer: {data.manufecturer}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Cost in Credits: {data.cost_in_credits}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Length: {data.length}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Max Atmosphering Speed: {data.max_atmosphering_speed}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Crew: {data.crew}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Passengers: {data.passengers}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Cargo Capacity: {data.cargo_capacity}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Consumables: {data.consumables}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Hyperdrive_rating: {data.hyperdrive_rating}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>MGLT: {data.MGLT}</Heading>
+                <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Starship Class: {data.starship_class}</Heading>
               
                 
              </Flex>
@@ -73,17 +77,17 @@ export default function PlanetsProfile(props) {
   
   >
 <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
-Residents
+Pilots
 </Box>
    
 
 
 
 <Wrap justify='center'>
-          {data && data.residents ? (
-            data.residents.map((data) => (
+          {data && data.pilots ? (
+            data.pilots.map((data) => (
 
-              <Peoplecard  data={data.url} />
+              <SimpleCard  data={data.url} />
               // <Link key={data.url} href={`/page/profile/${data.url.split('/').filter(Boolean).pop()}`}   passHref>
               
             //  </Link>

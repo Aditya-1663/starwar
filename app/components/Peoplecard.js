@@ -43,9 +43,6 @@ export default function Peoplecard(props) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
-console.log("start")
-console.log(isFavorite)
-console.log("end")
 
 
 
@@ -68,7 +65,7 @@ console.log("end")
             <FaHeart  size={'30px'}  />
             
           </IconButton>
-          <Link key={props.data} href={`/page/profile/${props.data.split('/').filter(Boolean).pop()}`}   passHref>
+          <Link key={props.data} href={`/page/profile/${data==null?"":(props.data).split('/').filter(Boolean).pop()}`}   passHref>
          
     <Image
       src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'

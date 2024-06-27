@@ -102,7 +102,7 @@ planets
           {fprofile && fprofile.planets ? (
             fprofile.planets.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/planets/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
@@ -131,7 +131,7 @@ vehicles
           {fprofile && fprofile.vehicles ? (
             fprofile.vehicles.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/vehicle/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
@@ -160,7 +160,7 @@ Species
           {fprofile && fprofile.species ? (
             fprofile.species.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/species/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
@@ -190,7 +190,7 @@ starships
           {fprofile && fprofile.starships ? (
             fprofile.starships.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+              <Link key={data} href={`/page/starship/${data.split('/').filter(Boolean).pop()}`}   passHref>
                 {/* {{data}} */}
               <SimpleCard data={data} />
              </Link>
