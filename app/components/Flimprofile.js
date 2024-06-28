@@ -23,11 +23,11 @@ useEffect(() => {
 
   return (
     <>
-    <Container  size={'lg'} h={['auto','77vh']} maxW='85%'  >
+    <Container  size={'lg'} h={['200vh','77vh']} maxW='85%' maxH={'100%'} >
      
 
-      <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'} borderColor={'gray'}>
-        <Box   minH={'50%'} height={'100%'} width={['100%','40%']}
+      <Flex  direction={['column','row']} width={'100%'}h={'100%'} border={'1px'} borderColor={'gray'}>
+        <Box   minH={['auto','50%']} height={['40%','100%']} width={['100%','40%']}
        
         backgroundImage={`url(${Filmsimg[fprofile.title]})`}
         backgroundSize='cover'
@@ -36,8 +36,8 @@ useEffect(() => {
         >
            
         </Box>
-        <Box  minH={'auto'}  height={'100%'} width={['100%','60%']}>
-            <Container  ml={6} mt={'10px'}>
+        <Box  minH={['auto','auto']}   height={['60%','100%']}  width={['100%','60%']}>
+            <Container ml={[0,6]} mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{fprofile.title}</Heading>
                 <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Episode No.: {fprofile.episode_id}</Heading>
