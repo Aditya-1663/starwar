@@ -43,7 +43,7 @@ export default function Navbar() {
             <Divider/>
             <DrawerBody>
               <VStack  spacing={6} fontSize={18} w={'100%'}>
-                <Link href={'#'} ><Box border={'2px'} borderColor={'black'}  as="div" _hover={{border:'2px solid white',
+                <Link href={'/page/Allfavchar'} ><Box border={'2px'} borderColor={'black'}  as="div" _hover={{border:'2px solid white',
               
                 }} p={4} >My Favourite</Box></Link>
                 <Link href={'#'} ><Box border={'2px'} borderColor={'black'} as="div" _hover={{border:'2px solid white',

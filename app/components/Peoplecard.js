@@ -39,11 +39,22 @@ export default function Peoplecard(props) {
     if (isFavorite) {
       favorites = favorites.filter(url => url !== props.data);
     } else {
+      console.log(props.data)
+      console.log(favorites)
       favorites.push(props.data);
     }
+    console.log("adi")
+    console.log(props.data)
+    console.log(favorites)
+    console.log("adikkkk")
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
+
+
+
+
+
   const context=useContext(Datacontext)
   const {CharImg}= context
   const getRandomKey = (obj) => {
@@ -65,14 +76,15 @@ export default function Peoplecard(props) {
            position={'absolute'}
             variant="ghost"
             color={isFavorite ? 'red' : 'white'}
-            _hover={{ bg: "main.400",color:"red",zIndex:"2" }}
+            _hover={{ bg: "main.400",color:"red" }}
             
-        //    top={0}
-        //    right={0}
+       
           >
+
             <FaHeart  size={'30px'}  />
             
           </IconButton>
+          {console.log("page  "+isFavorite)}
           <Link key={props.data} href={`/page/profile/${data==null?"":(props.data).split('/').filter(Boolean).pop()}`}   passHref>
          
     <Image

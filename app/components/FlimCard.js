@@ -23,7 +23,7 @@ export default function FlimCard(props) {
     } else {
       favorites.push(props.data);
     }
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('filmfavorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
 
@@ -57,7 +57,7 @@ export default function FlimCard(props) {
             
             _hover={{ bg: "main.400",color:"red" }}
             
-            color={isFavorite ? 'red' : 'white'}
+            color={isFavorite&&isFavorite ? 'red' : 'white'}
           >
             <FaHeart  size={'30px'}  />
             
