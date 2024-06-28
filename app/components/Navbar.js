@@ -13,6 +13,7 @@ import {
     DrawerOverlay,
     Flex,
     IconButton,
+    Image,
     Input,
  
     VStack,
@@ -60,7 +61,7 @@ export default function Navbar() {
           
           </DrawerContent>
         </Drawer>
-        <Flex
+        <Flex mb={7}
           h="75px"
           bg="black"
           color={'white'}
@@ -69,7 +70,7 @@ export default function Navbar() {
           px={4}
         >
 
-            <Flex>Star War</Flex>
+            <Flex h={'50px'} w={'150px'} ><Image h={'100%'} w={'200%'} src='https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254'></Image></Flex>
           
           <IconButton
             

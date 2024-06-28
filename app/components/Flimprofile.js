@@ -23,12 +23,12 @@ useEffect(() => {
 
   return (
     <>
-    <Container  size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
+    <Container  size={'lg'} h={['100vh','77vh']} maxW='85%' maxH={'80%'} >
      
 
-      <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
-        <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        // backgroundImage={'https://images.unsplash.com/photo-1547700055-b61cacebece9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww'}
+      <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'} borderColor={'gray'}>
+        <Box   minH={'50%'} height={'100%'} width={['100%','40%']}
+       
         backgroundImage={`url(${Filmsimg[fprofile.title]})`}
         backgroundSize='cover'
            backgroundPosition='center'
@@ -36,8 +36,8 @@ useEffect(() => {
         >
            
         </Box>
-        <Box border={'1px'}   height={'100%'} width={['100%','50%']}>
-            <Container mt={'10px'}>
+        <Box  minH={'auto'}  height={'100%'} width={['100%','60%']}>
+            <Container  ml={6} mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{fprofile.title}</Heading>
                 <Heading as={'h2'} size={'sm'} color={'gray'} mb={3}>Episode No.: {fprofile.episode_id}</Heading>
@@ -56,10 +56,10 @@ useEffect(() => {
 
     </Container>
     
-    <Container h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
+    <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 Characters in Flim
 </Box>
    
@@ -69,10 +69,10 @@ Characters in Flim
           {fprofile && fprofile.characters ? (
             fprofile.characters.map((data) => (
 
-              <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
-                {/* {{data}} */}
+              // <Link key={data} href={`/page/profile/${data.split('/').filter(Boolean).pop()}`}   passHref>
+                // {/* {{data}} */}
               <Peoplecard  data={data} />
-             </Link>
+            //  </Link>
             ))
           ) : (
             <Box color={'white'}>Loading...</Box>
@@ -88,10 +88,10 @@ Characters in Flim
 
 
 
-   <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+   <Container display={fprofile && fprofile.planets && fprofile.planets.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 planets
 </Box>
 
@@ -117,10 +117,10 @@ planets
   
   
 </Container> 
-<Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+<Container display={fprofile && fprofile.vehicles && fprofile.vehicles.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 vehicles
 </Box>
    
@@ -147,10 +147,10 @@ vehicles
   
   
 </Container> 
-<Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+<Container display={fprofile && fprofile.species && fprofile.species.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 Species
 </Box>
    
@@ -176,10 +176,10 @@ Species
   
   
 </Container> 
-<Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+<Container display={fprofile && fprofile.starships && fprofile.starships.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 starships
 </Box>
    

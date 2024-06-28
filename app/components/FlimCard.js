@@ -3,10 +3,30 @@ import { color } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react'
 import { FaRegHeart ,CiHeart,FaHeart } from "react-icons/fa";
 import Datacontext from '../context/Datacontex';
+import Link from 'next/link';
 export default function FlimCard(props) {
   const [data, setdata] = useState("");
   const context=useContext(Datacontext)
   const {Filmsimg,CharImg}= context
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('filmfavorites')) || [];
+    if (favorites.includes(props.data)) {
+      setIsFavorite(true);
+    }
+  }, [props.data]);
+  const handleFavoriteClick = () => {
+    let favorites = JSON.parse(localStorage.getItem('filmfavorites')) || [];
+    if (isFavorite) {
+      favorites = favorites.filter(url => url !== props.data);
+    } else {
+      favorites.push(props.data);
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setIsFavorite(!isFavorite);
+  };
+
   useEffect(() => {
     const fetchCharacterData = async () => {
       
@@ -31,20 +51,20 @@ export default function FlimCard(props) {
     }}>
   <CardBody  position={'relative'}  m={1} p={1}>
   <IconButton
-            
+             onClick={handleFavoriteClick}
            position={'absolute'}
             variant="ghost"
-            color="white"
+            
             _hover={{ bg: "main.400",color:"red" }}
             
-        //    top={0}
-        //    right={0}
+            color={isFavorite ? 'red' : 'white'}
           >
             <FaHeart  size={'30px'}  />
             
           </IconButton>
+          <Link key={props.data} href={`/page/films/${props.data.split('/').filter(Boolean).pop()}`}   passHref>
     <Image 
-      // src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+     
       src={`${Filmsimg[data.title]}`}
       borderRadius='lg'
       h={'350px'} w={'350px'} m={0}
@@ -59,7 +79,7 @@ export default function FlimCard(props) {
      Release Date : {data==null?"":data.release_date}
   </Heading>
     
-    </Stack>
+    </Stack></Link>
   </CardBody>
 
 </Card>

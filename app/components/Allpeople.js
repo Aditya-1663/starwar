@@ -47,7 +47,7 @@ const handlePrevClick = () => {
    <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   
       >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
     All charcters ({data.count})
 </Box>
        
@@ -59,9 +59,7 @@ const handlePrevClick = () => {
             data.results.map((data) => (
 
               <Peoplecard  data={data.url} />
-              // <Link key={data.url} href={`/page/profile/${data.url.split('/').filter(Boolean).pop()}`}   passHref>
-              
-            //  </Link>
+             
             ))
           ) : (
             <Box color={'white'}>Loading...</Box>
@@ -70,7 +68,7 @@ const handlePrevClick = () => {
 
 <Box h={'70px'} m={5}    > 
   <Flex  h={'100%'} direction={'row'} justify={'space-between'}>
-  <Button onClick={handlePrevClick} leftIcon={<IoIosArrowRoundBack />} w={'100px'} h={'50px'} colorScheme='white' alignItems={'center'} _hover={{background:'white',color:'black'}} variant='outline'>
+  <Button  isDisabled={data.previous == null}  onClick={handlePrevClick} leftIcon={<IoIosArrowRoundBack />} w={'100px'} h={'50px'} colorScheme='white' alignItems={'center'} _hover={{background:'white',color:'black'}} variant='outline'>
     Prev.
   </Button>
   <Box color={'white'}>
@@ -78,7 +76,7 @@ const handlePrevClick = () => {
  <PiGreaterThan/> */}
 
   </Box>
-  <Button onClick={handleNextClick} rightIcon={<IoIosArrowRoundForward />} w={'100px'} h={'50px'} colorScheme='white' alignItems={'center'} _hover={{background:'white',color:'black'}} variant='outline'>
+  <Button isDisabled={data.next == null}  onClick={handleNextClick} rightIcon={<IoIosArrowRoundForward />} w={'100px'} h={'50px'} colorScheme='white' alignItems={'center'} _hover={{background:'white',color:'black'}} variant='outline'>
     Next
   </Button>
 

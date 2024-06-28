@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, IconButton, Image, Stack, Text } from '@chakra-ui/react'
-import { color } from 'framer-motion';
+
 import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react'
 import { FaRegHeart ,CiHeart,FaHeart } from "react-icons/fa";
@@ -44,9 +44,15 @@ export default function Peoplecard(props) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
-
   const context=useContext(Datacontext)
-  const {Filmsimg,CharImg}= context
+  const {CharImg}= context
+  const getRandomKey = (obj) => {
+    const keys = Object.keys(obj);
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    return keys[randomIndex];
+  };
+  
+  const randomKey = getRandomKey(CharImg);
 
   return (
     <>
@@ -70,9 +76,9 @@ export default function Peoplecard(props) {
           <Link key={props.data} href={`/page/profile/${data==null?"":(props.data).split('/').filter(Boolean).pop()}`}   passHref>
          
     <Image
-          src={`${CharImg[data.name]||CharImg["Darth Vader"]}`}
-      // src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-      alt='Green double couch with wooden legs'
+          src={`${CharImg[data.name]||CharImg[randomKey]}`}
+      
+      alt=''
       borderRadius='lg'
     />
     
@@ -91,10 +97,7 @@ export default function Peoplecard(props) {
 
 
   </CardBody>
-  {/* <Divider /> */}
-  {/* <CardFooter bg={'red'}>
-   
-  </CardFooter> */}
+  
 </Card>
     </>
   )

@@ -21,15 +21,15 @@ export default function SimpleCard(props) {
     fetchData();
   }, [props.data]);
   return (
-    <Card align='center' size={'sm'} maxW={'250px'} maxH={'100px'} border={'2px'} borderColor={'black'}
-     className='Card' bg={'back'}   _hover={{
-        border:'2px solid white'}} m={3}
+    <Card bg={'rgba(0, 0, 0, 0.3)'} color={'white'} align='center' size={'sm'} minW={'250px'} maxW={'400px'} maxH={'100px'} border={'2px'} borderColor={'black'}
+     className='Card'  _hover={{
+        border:'2px solid white'}} m={3} p={2}
     >
     <CardHeader>
-      <Heading size='md'> {data.name}</Heading>
+      <Heading size='md' m={0} p={0}> {data.name}</Heading>
     </CardHeader>
-    <CardBody>
-      <Text>{data.model}</Text>
+    <CardBody m={0} p={0}>
+      <Text>{data.model||data.classification||"View More"}</Text>
     </CardBody>
     
   </Card>

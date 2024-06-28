@@ -32,7 +32,7 @@ export default function Species(props) {
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
         <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/star-wars-outlaws-gameplay_article-feature_01bb1e67.jpeg?region=0,0,1600,900&width=768'}
+        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/aki-aki-main_09f2d83b.jpeg?region=369%2C0%2C854%2C854'}
         backgroundSize='cover'
            backgroundPosition='center'
            backgroundRepeat='no-repeat'
@@ -63,7 +63,7 @@ export default function Species(props) {
 
     </Container>
     
-    <Container h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
+    <Container display={data && data.people && data.people.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
   
   >
 <Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray'} mb={'15px'}>

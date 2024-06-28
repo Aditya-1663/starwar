@@ -27,19 +27,11 @@ export default function PlanetsProfile(props) {
     
     <>
     <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
-      {/* <SimpleGrid column={[1,null,2]}>
-        <Box  border={'1px'} height={'100%'}>
-            hello
-        </Box>
-        <Box border={'1px'}  height={'100%'}>
-            hello
-        </Box>
-        
-        </SimpleGrid> */}
+   
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
         <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/star-wars-outlaws-gameplay_article-feature_01bb1e67.jpeg?region=0,0,1600,900&width=768'}
+        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/lola-sayu_e41867d8.jpeg?region=69%2C0%2C1422%2C800'}
         backgroundSize='cover'
            backgroundPosition='center'
            backgroundRepeat='no-repeat'
@@ -69,10 +61,10 @@ export default function PlanetsProfile(props) {
 
     </Container>
     
-    <Container h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
+    <Container  display={data && data.residents && data.residents.length === 0 ? 'none' : 'block'}h={'100%'} maxW='85%' maxH={'70%'} border={'1px'} size={'lg'} mt={'20px'} bg={'black'}
   
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 Residents
 </Box>
    
@@ -84,9 +76,7 @@ Residents
             data.residents.map((data) => (
 
               <Peoplecard  data={data.url} />
-              // <Link key={data.url} href={`/page/profile/${data.url.split('/').filter(Boolean).pop()}`}   passHref>
-              
-            //  </Link>
+            
             ))
           ) : (
             <Box color={'white'}>Loading...</Box>

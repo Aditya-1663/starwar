@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Charprofile(props) {
   const context=useContext(Datacontext)
-  const {profile,Charprofile}= context
+  const {profile,Charprofile,CharImg}= context
  
 const fetchData = useCallback(async () => {
   await Charprofile(props.url);
@@ -19,15 +19,19 @@ useEffect(() => {
   fetchData();
 }, [fetchData]);
 
- console.log(props.url)
- console.log(profile)
+const getRandomKey = (obj) => {
+  const keys = Object.keys(obj);
+  const randomIndex = Math.floor(Math.random() * keys.length);
+  return keys[randomIndex];
+};
 
+const randomKey = getRandomKey(CharImg);
   return (
     <>
     <Container  size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
       <Flex direction={['column','row']} width={'100%'}h={'100%'} >
         <Box  border={'1px'} height={'100%'} width={['100%','50%']}
-        backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/star-wars-outlaws-gameplay_article-feature_01bb1e67.jpeg?region=0,0,1600,900&width=768'}
+        backgroundImage={`url(${CharImg[profile.name]||CharImg[randomKey]})`}
         backgroundSize='cover'
            backgroundPosition='center'
            backgroundRepeat='no-repeat'
@@ -60,10 +64,10 @@ useEffect(() => {
 
 
 
-   <Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+   <Container display={profile && profile.species && profile.species.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 species
 </Box>
    
@@ -73,7 +77,7 @@ species
             profile.species.map((data) => (
 
               <Link key={data} href={`/page/species/${data.split('/').filter(Boolean).pop()}`}   passHref>
-                {/* {{data}} */}
+               
               <SimpleCard data={data} />
              </Link>
             ))
@@ -86,10 +90,10 @@ species
   
   
 </Container> 
-<Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+<Container  display={profile && profile.vehicles && profile.vehicles.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 vehicles
 </Box>
    
@@ -115,10 +119,10 @@ vehicles
   
   
 </Container> 
-<Container h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
+<Container display={profile && profile.starships && profile.starships.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   p={4} mb={6}
   >
-<Box fontSize={'50px'} borderBottom={'2px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
+   <Box fontSize={'45px'} borderBottom={'1px'} fontStyle={'oblique'} borderColor={'gray.200'} mb={'15px'}>
 starships
 </Box>
    
