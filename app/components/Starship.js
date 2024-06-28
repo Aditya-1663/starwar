@@ -26,11 +26,11 @@ export default function PlanetsProfile(props) {
   return (
     
     <>
-    <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
+    <Container size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
      
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} >
-        <Box  border={'1px'} height={'100%'} width={['100%','50%']}
+        <Box  height={'100%'} width={['100%','50%']}
         backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/tie-whisper_ec973722.jpeg?region=289%2C0%2C720%2C720'}
         backgroundSize='cover'
            backgroundPosition='center'
@@ -38,7 +38,7 @@ export default function PlanetsProfile(props) {
         >
            
         </Box>
-        <Box border={'1px'}   height={'100%'} width={['100%','50%']}>
+        <Box  borderLeft={['none', '1px']}   borderTop={['1px', 'none']}   height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{data.name}</Heading>

@@ -27,11 +27,11 @@ export default function Species(props) {
   console.log(data)
   return (
     <>
-    <Container border={'2px'} size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
+    <Container  size={'lg'} h={'75vh'} maxW='85%' maxH={'80%'} >
      
 
-      <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'}>
-        <Box  border={'1px'} height={'100%'} width={['100%','50%']}
+      <Flex direction={['column','row']} width={'100%'}h={'100%'} >
+        <Box   height={'100%'} width={['100%','50%']}
         backgroundImage={'https://lumiere-a.akamaihd.net/v1/images/aki-aki-main_09f2d83b.jpeg?region=369%2C0%2C854%2C854'}
         backgroundSize='cover'
            backgroundPosition='center'
@@ -39,7 +39,7 @@ export default function Species(props) {
         >
            
         </Box>
-        <Box border={'1px'}   height={'100%'} width={['100%','50%']}>
+        <Box borderLeft={['none', '1px']}   borderTop={['1px', 'none']}   height={'100%'} width={['100%','50%']}>
             <Container mt={'10px'}>
              <Flex direction={'column'}>
                 <Heading mb={5}>{data.name}</Heading>
