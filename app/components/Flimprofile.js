@@ -23,7 +23,7 @@ useEffect(() => {
 
   return (
     <>
-    <Container  size={'lg'} h={['100vh','77vh']} maxW='85%' maxH={'80%'} >
+    <Container  size={'lg'} h={['auto','77vh']} maxW='85%'  >
      
 
       <Flex direction={['column','row']} width={'100%'}h={'100%'} border={'1px'} borderColor={'gray'}>
