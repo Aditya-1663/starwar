@@ -18,8 +18,8 @@ export default function Allfavchar() {
   const [filmfavorites, filmsetFavorites] = useState([]);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setFavorites(storedFavorites);
+    const storedFavorites = JSON.parse(localStorage.getItem('filmfavorites')) || [];
+    filmsetFavorites(storedFavorites);
   }, []);
   return (
     <div>
