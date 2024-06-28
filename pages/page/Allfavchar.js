@@ -24,7 +24,7 @@ export default function Allfavchar() {
   return (
     <div>
       <Layout>
-
+  <Box minH={'86vh'}>
       <Container  display={ favorites&& favorites.length === 0 ? 'none' : 'block'} h={'100%'} maxW='85%' maxH={'70%'}  size={'lg'} mt={'20px'} bg={'black'}
   
   >
@@ -78,7 +78,7 @@ All Favourite Movies
   
 </Container> 
 
-
+</Box>
       </Layout>
     </div>
   )
