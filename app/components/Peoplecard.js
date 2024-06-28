@@ -21,6 +21,7 @@ export default function Peoplecard(props) {
         }
       
     };
+    setIsFavorite(false)
  fetchCharacterData();
   }, [props.data]);
    
