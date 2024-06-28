@@ -6,6 +6,7 @@ import { FaRegHeart ,CiHeart,FaHeart } from "react-icons/fa";
 import Datacontext from '../context/Datacontex';
 
 export default function Peoplecard(props) {
+  const [isFavorite, setIsFavorite] = useState(false);
   const [data, setdata] = useState("");
 
   useEffect(() => {
@@ -26,16 +27,15 @@ export default function Peoplecard(props) {
 
 
 
-  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || "";
     if (favorites.includes(props.data)) {
       setIsFavorite(true);
     }
   }, [props.data]);
   const handleFavoriteClick = () => {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    let favorites = JSON.parse(localStorage.getItem('favorites')) ||"";
     if (isFavorite) {
       favorites = favorites.filter(url => url !== props.data);
     } else {
