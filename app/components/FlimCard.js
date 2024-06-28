@@ -47,7 +47,7 @@ export default function FlimCard(props) {
   return (
     <>
     <Card   className='Card' bg={'rgba(0, 0, 0, 0.3)'} color={'white'} maxW='250px' minH={'400px'} minW={'200px'}  border={'2px'} borderColor={'black'}  _hover={{
-        border:'2px solid white' 
+        border:'2px solid white' ,transition:'1.5s'
     }}>
   <CardBody  position={'relative'}  m={1} p={1}>
   <IconButton

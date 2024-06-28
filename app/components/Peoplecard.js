@@ -57,7 +57,7 @@ export default function Peoplecard(props) {
   return (
     <>
     <Card   className='Card' bg={'rgba(0, 0, 0, 0.3)'}  color={'white'}maxW='300px' minW={'200px'} maxH={'sm'} border={'2px'} borderColor={'black'} _hover={{
-        border:'2px solid white' 
+        border:'2px solid white' ,transition:'1.5s'
     }}>
   <CardBody  position={'relative'} >
        <IconButton

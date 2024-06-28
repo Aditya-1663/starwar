@@ -4,6 +4,7 @@ import {
  
   Box,
     Button,
+    Divider,
     Drawer,
     DrawerBody,
     DrawerCloseButton,
@@ -37,9 +38,9 @@ export default function Navbar() {
         >
           <DrawerOverlay />
           <DrawerContent bg={'black'} color={'white'}>
-            <DrawerCloseButton />
+            <DrawerCloseButton size={'xl'} mt={4} mr={5} />
             <DrawerHeader>Menu Bar</DrawerHeader>
-  
+            <Divider/>
             <DrawerBody>
               <VStack  spacing={6} fontSize={18} w={'100%'}>
                 <Link href={'#'} ><Box border={'2px'} borderColor={'black'}  as="div" _hover={{border:'2px solid white',
@@ -62,6 +63,7 @@ export default function Navbar() {
           </DrawerContent>
         </Drawer>
         <Flex mb={7}
+        borderBottom={'2px'} borderColor={'gray'}
           h="75px"
           bg="black"
           color={'white'}
@@ -70,7 +72,7 @@ export default function Navbar() {
           px={4}
         >
 
-            <Flex h={'50px'} w={'150px'} ><Image h={'100%'} w={'200%'} src='https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254'></Image></Flex>
+            <Flex h={'50px'} w={'150px'}  ><Image h={'100%'} w={'200%'} src='https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254'></Image></Flex>
           
           <IconButton
             
@@ -86,6 +88,7 @@ export default function Navbar() {
           </IconButton>
           
         </Flex>
+        {/* <Divider/> */}
       </>
     );
 }

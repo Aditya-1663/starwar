@@ -14,7 +14,7 @@ const Filmsimg = {
     "Luke Skywalker": "https://lumiere-a.akamaihd.net/v1/images/thumb_60462e7c.jpeg?region=0%2C210%2C1200%2C480",
   "Darth Vader": " https://lumiere-a.akamaihd.net/v1/images/darth-vader-main_4560aff7.jpeg?region=0%2C67%2C1280%2C720",
   "Princess Leia Organa": "https://lumiere-a.akamaihd.net/v1/images/leia-organa-main_9af6ff81.jpeg?region=187%2C157%2C1400%2C786",
-  "Han Solo": "https://lumiere-a.akamaihd.net/v1/images/image_b7b09a0d.jpeg",
+  "Han Solo": "https://lumiere-a.akamaihd.net/v1/images/image_121e60c2.jpeg?region=0%2C26%2C1918%2C767",
   "Obi-Wan Kenobi": "https://lumiere-a.akamaihd.net/v1/images/62911445297bbb0001408c33-image_cd503f4a.jpeg?region=0%2C125%2C1536%2C614",
   "Yoda": "https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=0%2C0%2C1536%2C864",
   "Palpatine": "https://lumiere-a.akamaihd.net/v1/images/emperor-palpatine-main_005365e2.jpeg?region=159%2C0%2C962%2C541",

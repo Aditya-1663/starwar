@@ -23,7 +23,7 @@ export default function SimpleCard(props) {
   return (
     <Card bg={'rgba(0, 0, 0, 0.3)'} color={'white'} align='center' size={'sm'} minW={'250px'} maxW={'400px'} maxH={'100px'} border={'2px'} borderColor={'black'}
      className='Card'  _hover={{
-        border:'2px solid white'}} m={3} p={2}
+        border:'2px solid white',transition:'1.5s'}} m={3} p={2} 
     >
     <CardHeader>
       <Heading size='md' m={0} p={0}> {data.name}</Heading>
