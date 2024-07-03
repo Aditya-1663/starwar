@@ -44,10 +44,10 @@ export default function Peoplecard(props) {
       console.log(favorites)
       favorites.push(props.data);
     }
-    console.log("adi")
+    // console.log("adi")
     console.log(props.data)
     console.log(favorites)
-    console.log("adikkkk")
+    // console.log("adikkkk")
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
